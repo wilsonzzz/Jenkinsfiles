@@ -5,7 +5,7 @@ pipeline {
     agent { node { label "master"}}
 
     stages{
-        stage("mavenbuild"){
+        stage("MavenBuild"){
             steps{
                 script{
                     mvnHome = tool "M2"
@@ -13,7 +13,7 @@ pipeline {
                 }
             }
         }
-        stage("antbuild"){
+        stage("AntBuild"){
             steps{
                 script{
                     try{
@@ -30,6 +30,14 @@ pipeline {
                 script{
                     gradleHome = tool "GRADLE"
                     sh "${gradleHome}/bin/gradle ${buildShell}"
+                }
+            }
+        }
+        stage("NpmBuild"){
+            steps{
+                script{
+                    npmHome = tool "NPM"
+                    sh "${npmHome}/bin/npm ${buildShell}"
                 }
             }
         }
