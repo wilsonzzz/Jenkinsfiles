@@ -1,4 +1,4 @@
-#！groovy
+#!groovy
 
 String buildShell = "${env.buildShell}"
 
