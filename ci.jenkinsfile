@@ -37,7 +37,7 @@ pipeline {
             steps{
                 script{
                     npmHome = tool "NPM"
-                    sh "${npmHome}/bin/npm ${buildShell}"
+                    sh "export NODE_HOME=${npmHome} && ${npmHome}/bin/npm ${buildShell}"
                 }
             }
         }
