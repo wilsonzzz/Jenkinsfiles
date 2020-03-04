@@ -4,7 +4,7 @@ pipeline {
     agent { node { label "master"}}
 
     stages{
-        stage("build){
+        stage("build"){
             steps{
                 script{
                     mvnHome = tool "M2"
